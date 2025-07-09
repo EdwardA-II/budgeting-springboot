@@ -26,18 +26,31 @@ This repo serves as the backend logic and REST API layer of the full budgeting a
 - (Planned) Spring Data JPA + H2/PostgreSQL/MySQL
 
 ---
+📈 Future Plans
 
-## API Endpoints
+    Add persistence layer (Spring Data JPA + DB)
 
-    📍 Note: These are sample/planned endpoints. They may evolve over the course of the app's development!.
+    Authentication (Spring Security)
 
-Method	Endpoint	Description
-GET	/budgets	List all budgets
-GET	/budgets/{user_id}/{b_id}	List a specific budget for a specified user
-POST	/budgets	Create a new budget
-PUT	/budgets/{id}	Modify an existing budget
-DELETE	/budgets/{id}	Delete a budget
-GET	/budgets/{id}	View details of a budget
+    Connect to frontend CLI or web app
+
+    Export budget summaries
+---
+
+## 🧪 API Endpoints
+
+> 📍 Note: These are sample/planned endpoints. They may evolve over the course of the app's development!
+
+| Method | Endpoint                          | Description                                 |
+|--------|-----------------------------------|---------------------------------------------|
+| GET    | `/budgets`                        | List all budgets                            |
+| GET    | `/budgets/{user_id}/{b_id}`       | List a specific budget for a specified user |
+| POST   | `/budgets`                        | Create a new budget                         |
+| PUT    | `/budgets/{id}`                   | Modify an existing budget                   |
+| DELETE | `/budgets/{id}`                   | Delete a budget                             |
+| GET    | `/budgets/{id}`                   | View details of a budget                    |
+
+---
 
 ## 🚀 Getting Started
 
