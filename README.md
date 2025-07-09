@@ -46,9 +46,9 @@ This repo serves as the backend logic and REST API layer of the full budgeting a
 | GET    | `/budgets`                        | List all budgets                            |
 | GET    | `/budgets/{user_id}/{b_id}`       | List a specific budget for a specified user |
 | POST   | `/budgets`                        | Create a new budget                         |
-| PUT    | `/budgets/{id}`                   | Modify an existing budget                   |
-| DELETE | `/budgets/{id}`                   | Delete a budget                             |
-| GET    | `/budgets/{id}`                   | View details of a budget                    |
+| PUT    | `/budgets/{b_id}`                   | Modify an existing budget                   |
+| DELETE | `/budgets/{b_id}`                   | Delete a budget                             |
+| GET    | `/budgets/{b_id}`                   | View details of a budget                    |
 
 ---
 
