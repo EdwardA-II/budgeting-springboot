@@ -23,4 +23,14 @@ public class EddiesBudgetingAppApplication {
 		}
 	}
 
+	@RestController
+	@RequestMapping("/api/test/num")
+	public class TestConnectA {
+
+		@GetMapping
+		public int getNumber() {
+			return 5;
+		}
+	}
+
 }
