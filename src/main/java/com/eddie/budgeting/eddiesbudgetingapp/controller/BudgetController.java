@@ -18,7 +18,6 @@ public class BudgetController {
         this.budgetService = budgetService;
     }
 
-
     @GetMapping("/{budgetID}")
     public Budget addBudget(@PathVariable long budgetID) {
 
