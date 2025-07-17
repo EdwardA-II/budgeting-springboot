@@ -19,20 +19,20 @@ public class BudgetController {
     }
 
 
-    @GetMapping("/budgets/{budgetID}")
+    @GetMapping("/{budgetID}")
     public Budget addBudget(@PathVariable long budgetID) {
 
         return null;
 
     }
 
-    @RequestMapping("/budgets/{budget_id}")
+    @RequestMapping("/{budgetID}")
     public Budget getBudget() {
 
         return null;
     }
 
-    @PostMapping("/budgets/{budget_id}")
+    @PostMapping("/budgets/{budgetID}")
     public String addBudget() {
 
         return "index";
