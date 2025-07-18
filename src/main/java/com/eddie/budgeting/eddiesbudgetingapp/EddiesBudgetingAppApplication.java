@@ -13,24 +13,4 @@ public class EddiesBudgetingAppApplication {
 		SpringApplication.run(EddiesBudgetingAppApplication.class, args);
 	}
 
-	@RestController
-	@RequestMapping("/api/test")
-	public class TestController {
-
-		@GetMapping
-		public String hello() {
-            return "Wassup my boy!";
-		}
-	}
-
-	@RestController
-	@RequestMapping("/api/test/num")
-	public class TestConnectA {
-
-		@GetMapping
-		public int getNumber() {
-			return 5;
-		}
-	}
-
 }
