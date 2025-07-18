@@ -35,4 +35,8 @@ public class Budget {
     BigDecimal income;
     BigDecimal totalExpenses = BigDecimal.valueOf(0.0);
 
+//    TODO: Need to change the way expenses are stored since it doesnt map well in the DB (pun intended)
+    // There are multiple expenses within a Budget so I will make it a separate Entity/Class alond with Users.
+    // Will map out a DB architecture that goes like this: Users <-- Budget <-- Expenses
+    // In other words, Users will have Budgets that contain Expenses!
 }
