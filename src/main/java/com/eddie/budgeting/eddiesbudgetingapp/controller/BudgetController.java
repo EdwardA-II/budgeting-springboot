@@ -7,11 +7,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/budgets")
@@ -29,23 +32,36 @@ public class BudgetController {
         return budgetService.findAll();
     }
 
-    @PostMapping(path = "/{budgetId}", produces = "application/json",
+    /* OLD addBudget endpoint!
+    @PostMapping(produces = "application/json",
         consumes = "application/json")
-    public Budget addBudget(@PathVariable Budget newBudget) {
-        return budgetService.save(newBudget);
+    public Budget addBudget(@RequestBody Long id,
+                            String budgetName,
+                            Map<String, BigDecimal> expenses,
+                            String expenseName,
+                            BigDecimal income,
+                            BigDecimal totalExpenses) {
+        return budgetService.createBudget(id, budgetName, expenses, expenseName, income, totalExpenses);
+    }
+     */
+
+    @PostMapping(produces = "application/json",
+            consumes = "application/json")
+    public Budget addBudget(@RequestBody Budget newBudget) {
+        return budgetService.createBudget(newBudget);
     }
 
-    @RequestMapping("/{budgetId}")
+    @RequestMapping(path = "/{budgetId}", produces = "application/json")
     public Budget getBudget(@PathVariable Long budgetId) {
         return budgetService.findById(budgetId);
     }
 
-    @PutMapping("/budgets/{budgetId}")
+    @PutMapping(path = "/{budgetId}", produces = "application/json")
     public void editBudget(@PathVariable Long budgetId) {
 
     }
 
-    @DeleteMapping("/budgets/{budgetId}")
+    @DeleteMapping(path = "/{budgetId}", produces = "application/json")
     public void deleteBudget(@PathVariable Long budgetId) {
         budgetService.delete(budgetId);
     }
