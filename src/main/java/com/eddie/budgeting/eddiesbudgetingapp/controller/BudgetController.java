@@ -32,19 +32,6 @@ public class BudgetController {
         return budgetService.findAll();
     }
 
-    /* OLD addBudget endpoint!
-    @PostMapping(produces = "application/json",
-        consumes = "application/json")
-    public Budget addBudget(@RequestBody Long id,
-                            String budgetName,
-                            Map<String, BigDecimal> expenses,
-                            String expenseName,
-                            BigDecimal income,
-                            BigDecimal totalExpenses) {
-        return budgetService.createBudget(id, budgetName, expenses, expenseName, income, totalExpenses);
-    }
-     */
-
     @PostMapping(produces = "application/json",
             consumes = "application/json")
     public Budget addBudget(@RequestBody Budget newBudget) {

@@ -25,24 +25,6 @@ public class BudgetService {
         return repo.findById(id).orElse(null);
     }
 
-    /* OLD createBudget method that apparently would not work.
-    public Budget createBudget (Long id,
-                                String budgetName,
-                                Map<String, BigDecimal> expenses,
-                                String expenseName,
-                                BigDecimal income,
-                                BigDecimal totalExpenses) {
-        Budget newBudget = new Budget();
-        newBudget.setId(id);
-        newBudget.setBudgetName(budgetName);
-        newBudget.setExpenses(expenses);
-        newBudget.setExpenseName(expenseName);
-        newBudget.setIncome(income);
-        newBudget.setTotalExpenses(totalExpenses);
-        return newBudget;
-    }
-    */
-
     public Budget createBudget(Budget newBudget) {
         newBudget.setId(null);
         repo.save(newBudget);
