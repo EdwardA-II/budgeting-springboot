@@ -23,7 +23,9 @@ This repo serves as the backend logic and REST API layer of the full budgeting a
 - Maven
 - Spring Web
 - Spring DevTools (optional)
-- (Planned) Spring Data JPA + H2/PostgreSQL/MySQL
+- Spring Data JPA +
+- H2 (DB Practice)
+- (Planned) PostgreSQL / MySQL
 
 ---
 📈 Future Plans
