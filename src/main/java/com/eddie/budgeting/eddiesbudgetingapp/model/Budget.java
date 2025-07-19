@@ -4,14 +4,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Transient;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -23,9 +21,15 @@ public class Budget {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Getter
-    @Setter
     String budgetName;
+    List<Expenses> expenses = new ArrayList<>();
 
+    public void addExpense(Expenses expense) {
+        this.expenses.add(expense);
+    }
+
+    public void renameBudget(String newName) {
+        this.budgetName = newName;
+    }
 }
 
