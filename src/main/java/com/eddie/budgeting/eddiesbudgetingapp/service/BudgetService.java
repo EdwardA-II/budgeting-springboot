@@ -31,7 +31,6 @@ public class BudgetService {
         return newBudget;
     }
 
-    // TODO: Hmm. How do I differentiate between saving a budget as a bew one vs saving edits to a pre-existing budget. Hmmm...
     public Budget save(Budget Budget) {
         return repo.save(Budget);
     }
@@ -41,10 +40,8 @@ public class BudgetService {
     }
 
     public Budget update(Long id, String updateChoice) {
-//        Budget budgetToUpdate = repo.findById(id).orElse(null);
-//        updateChoice += updateChoice.equalsIgnoreCase();
-//        switch (updateChoice):
-//            case updateChoice.equalsIgnoreCase("")-> {""}
+        Budget budgetToUpdate = repo.findById(id).orElse(null);
+        // Do logic to update it based on what they're trying to update.
 
         return null;
     }
