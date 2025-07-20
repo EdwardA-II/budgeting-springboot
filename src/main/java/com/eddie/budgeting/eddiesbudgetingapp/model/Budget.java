@@ -38,6 +38,7 @@ public class Budget {
 
     public void addExpense(Expense expense) {
         this.expenses.add(expense);
+        expense.setBudget(this);       // set the back-reference in Expense
     }
 
     public void removeExpense(Expense expenseToRemove) {
