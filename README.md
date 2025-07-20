@@ -23,16 +23,12 @@ This repo serves as the backend logic and REST API layer of the full budgeting a
 - Maven
 - Spring Web
 - Spring DevTools (optional)
-- Spring Data JPA +
+- Spring Data JPA + Hibernate
 - H2 (DB Practice)
 - (Planned) PostgreSQL / MySQL
 
 ---
 📈 Future Plans
-
-    Add persistence layer (Spring Data JPA + DB)
-
-    Authentication (Spring Security)
 
     Connect to frontend CLI or web app
 
@@ -46,11 +42,13 @@ This repo serves as the backend logic and REST API layer of the full budgeting a
 | Method | Endpoint                          | Description                                 |
 |--------|-----------------------------------|---------------------------------------------|
 | GET    | `/budgets`                        | List all budgets                            |
-| GET    | `/budgets/{user_id}/{b_id}`       | List a specific budget for a specified user |
+| GET    | `/budgets/{userId}/{budgetId}`       | List a specific budget for a specified user |
+| GET    | `/budgets/{userId}/`       | List a all budgets for a specified user |
 | POST   | `/budgets`                        | Create a new budget                         |
-| PUT    | `/budgets/{b_id}`                   | Modify an existing budget                   |
-| DELETE | `/budgets/{b_id}`                   | Delete a budget                             |
-| GET    | `/budgets/{b_id}`                   | View details of a budget                    |
+| PUT    | `/budgets/{budgetId}`                   | Modify an entire existing budget                   |
+| DELETE | `/budgets/{budgetId}`                   | Delete a budget                             |
+| GET    | `/budgets/{budgetId}`                   | View details of a budget                    |
+| PATCH    | `/budgets/{budgetId}/{modification}`                   | Modify a specific aspect of a budget                    |
 
 ---
 
@@ -68,3 +66,8 @@ This repo serves as the backend logic and REST API layer of the full budgeting a
 ```bash
 git clone https://github.com/EdwardA-II/budgeting-springboot.git
 cd budgeting-springboot
+```
+---
+![Mock Architecture Diagram with Notes](https://github.com/EdwardA-II/budgeting-springboot/blob/master/src/main/resources/Mock%20Architecture%20Diagram.png)
+
+---
