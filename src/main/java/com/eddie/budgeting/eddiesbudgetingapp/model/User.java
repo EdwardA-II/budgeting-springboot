@@ -4,13 +4,15 @@ import jakarta.persistence.Entity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @Entity
+@Data
 @NoArgsConstructor
 public class User {
     String firstName;
     String lastName;
     String email;
+
+
 
 
 

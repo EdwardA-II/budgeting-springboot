@@ -1,25 +1,27 @@
 package com.eddie.budgeting.eddiesbudgetingapp.model;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Transient;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.Map;
 
+@Entity
 @Data
 @NoArgsConstructor
-public class Expenses {
+public class Expense {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Transient
-    Map<String, BigDecimal> expenses = new HashMap<>();
+    @ManyToOne
+    @JoinColumn(name = "budgetId")
+    private Budget budget;
+
     String expenseName;
     BigDecimal expenseCost;
     BigDecimal income;

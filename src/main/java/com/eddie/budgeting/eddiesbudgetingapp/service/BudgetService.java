@@ -26,7 +26,7 @@ public class BudgetService {
     }
 
     public Budget createBudget(Budget newBudget) {
-        newBudget.setId(null);
+        newBudget.setBudgetId(null);
         repo.save(newBudget);
         return newBudget;
     }
@@ -37,6 +37,7 @@ public class BudgetService {
 
     public void delete(Long id) {
         repo.deleteById(id);
+        
     }
 
     public Budget update(Long id, String updateChoice) {
