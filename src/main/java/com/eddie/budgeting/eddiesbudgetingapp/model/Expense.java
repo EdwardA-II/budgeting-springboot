@@ -28,13 +28,4 @@ public class Expense {
     BigDecimal expenseCost;
     BigDecimal totalExpenses = BigDecimal.valueOf(0.0);
 
-//    public List<Expense> findByBudgetId(Long budgetId) {
-//        List<Expense> budgetExpenses = new ArrayList<Expense>();
-//
-//        for ()
-//
-//
-//        return budgetExpenses;
-//    }
-
 }

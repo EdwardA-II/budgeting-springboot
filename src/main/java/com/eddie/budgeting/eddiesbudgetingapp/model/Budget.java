@@ -44,5 +44,9 @@ public class Budget {
     public void removeExpense(Expense expenseToRemove) {
         this.expenses.remove(expenseToRemove);
     }
+
+    //TODO: Added total expenses here since it doesnt really make much sense to have it in the Expense DB?
+    BigDecimal totalExpenses = BigDecimal.valueOf(0.0);
+
 }
 
