@@ -16,7 +16,7 @@ import java.math.BigDecimal;
 public class Expense {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long expenseId;
 
     @ManyToOne
     @JoinColumn(name = "budgetId")
@@ -27,4 +27,6 @@ public class Expense {
     BigDecimal income;
     BigDecimal totalExpenses = BigDecimal.valueOf(0.0);
 
+    public void setExpenseId(Object o) {
+    }
 }

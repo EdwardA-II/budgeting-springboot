@@ -1,6 +1,7 @@
 package com.eddie.budgeting.eddiesbudgetingapp.service;
 
 import com.eddie.budgeting.eddiesbudgetingapp.model.Budget;
+import com.eddie.budgeting.eddiesbudgetingapp.model.Expense;
 import com.eddie.budgeting.eddiesbudgetingapp.repository.BudgetRepository;
 import org.springframework.stereotype.Service;
 
@@ -25,10 +26,10 @@ public class BudgetService {
         return repo.findById(id).orElse(null);
     }
 
-    public Budget createBudget(Budget newBudget) {
-        newBudget.setBudgetId(null);
-        repo.save(newBudget);
-        return newBudget;
+    public Expense createBudget(Expense newExpense) {
+        newExpense.setExpenseId(null);
+        repo.save(newExpense);
+        return newExpense;
     }
 
     public Budget save(Budget Budget) {
@@ -37,7 +38,7 @@ public class BudgetService {
 
     public void delete(Long id) {
         repo.deleteById(id);
-        
+
     }
 
     public Budget update(Long id, String updateChoice) {
