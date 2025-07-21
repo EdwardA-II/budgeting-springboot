@@ -27,23 +27,22 @@ public class ExpenseController {
     }
 
     @GetMapping(produces = "application/json")
-    public List<Expense> getAllExpense() {
-        return expenseService.findAll();
+    public List<Expense> getAllExpense(@PathVariable Long budgetId) {
+        return expenseService.findAll(budgetId);
     }
 
-    @PostMapping(produces = "application/json",
-            consumes = "application/json")
-    public Expense addExpense(@RequestBody Expense newExpense) {
-        return expenseService.createExpense(newExpense);
+    @PostMapping(produces = "application/json", consumes = "application/json")
+    public Expense addExpense(@RequestBody Expense newExpense, @PathVariable Long budgetId) {
+        return expenseService.createExpense(newExpense, budgetId);
     }
 
     @RequestMapping(path = "/{expenseId}", produces = "application/json")
-    public Expense getExpense(@PathVariable Long expenseId) {
+    public Expense getExpense(@PathVariable Long budgetId, @PathVariable Long expenseId) {
         return expenseService.findById(expenseId);
     }
 
     @PutMapping(path = "/{expenseId}", produces = "application/json")
-    public void editExpense(@PathVariable Long expenseId) {
+    public void editExpense(@PathVariable Long budgetId, @PathVariable Long expenseId) {
 
     }
 

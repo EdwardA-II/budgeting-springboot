@@ -26,10 +26,10 @@ public class BudgetService {
         return repo.findById(id).orElse(null);
     }
 
-    public Expense createBudget(Expense newExpense) {
-        newExpense.setExpenseId(null);
-        repo.save(newExpense);
-        return newExpense;
+    public Budget createBudget(Budget newBudget) {
+        newBudget.setBudgetId(null);
+        repo.save(newBudget);
+        return newBudget;
     }
 
     public Budget save(Budget Budget) {

@@ -9,6 +9,8 @@ import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -27,6 +29,13 @@ public class Expense {
     BigDecimal income;
     BigDecimal totalExpenses = BigDecimal.valueOf(0.0);
 
-    public void setExpenseId(Object o) {
-    }
+//    public List<Expense> findByBudgetId(Long budgetId) {
+//        List<Expense> budgetExpenses = new ArrayList<Expense>();
+//
+//        for ()
+//
+//
+//        return budgetExpenses;
+//    }
+
 }
