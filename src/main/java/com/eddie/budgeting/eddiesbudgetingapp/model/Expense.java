@@ -26,7 +26,6 @@ public class Expense {
 
     String expenseName;
     BigDecimal expenseCost;
-    BigDecimal income;
     BigDecimal totalExpenses = BigDecimal.valueOf(0.0);
 
 //    public List<Expense> findByBudgetId(Long budgetId) {
