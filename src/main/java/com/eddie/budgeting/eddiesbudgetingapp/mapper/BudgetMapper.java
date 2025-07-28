@@ -3,6 +3,9 @@ package com.eddie.budgeting.eddiesbudgetingapp.mapper;
 import com.eddie.budgeting.eddiesbudgetingapp.dto.BudgetResponse;
 import com.eddie.budgeting.eddiesbudgetingapp.dto.BudgetUpdateRequest;
 import com.eddie.budgeting.eddiesbudgetingapp.model.Budget;
+import com.eddie.budgeting.eddiesbudgetingapp.model.Expense;
+
+import java.util.List;
 
 public class BudgetMapper {
 
@@ -38,6 +41,19 @@ public class BudgetMapper {
 
         if (updateRequest.getActualTotal() != null) {
             budgetToUpdate.setActualTotal(updateRequest.getActualTotal());
+        }
+
+        if(updateRequest.getExpenses() != null) {
+            List<Expense> currExps = budgetToUpdate.getExpenses();
+
+            // Iterate through the Expenses list.
+            for(Expense exp : updateRequest.getExpenses()) {
+                // If it doesnt already exist in the list, add it.
+                if( !(currExps.contains(exp)) ) {
+                    budgetToUpdate.addExpense(exp);
+                }
+
+            }
         }
     }
 
