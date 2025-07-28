@@ -1,23 +1,21 @@
-package com.eddie.budgeting.eddiesbudgetingapp.model;
+package com.eddie.budgeting.eddiesbudgetingapp.dto;
 
-import jakarta.persistence.Entity;
+import com.eddie.budgeting.eddiesbudgetingapp.model.Expense;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-import jakarta.persistence.CascadeType;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
 @Getter
 @Setter
-@NoArgsConstructor
-public class Budget {
+public class BudgetUpdateRequest {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,20 +28,4 @@ public class Budget {
 
     @OneToMany(mappedBy = "budget", cascade = CascadeType.ALL, orphanRemoval = false)
     List<Expense> expenses = new ArrayList<>();
-
-
-    public void renameBudget(String newName) {
-        this.budgetName = newName;
-    }
-
-    public void addExpense(Expense expense) {
-        this.expenses.add(expense);
-        expense.setBudget(this);       // set the back-reference in Expense
-    }
-
-    public void removeExpense(Expense expenseToRemove) {
-        this.expenses.remove(expenseToRemove);
-    }
-
 }
-

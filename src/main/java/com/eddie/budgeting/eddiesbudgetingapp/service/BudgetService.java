@@ -1,51 +1,60 @@
 package com.eddie.budgeting.eddiesbudgetingapp.service;
 
+import com.eddie.budgeting.eddiesbudgetingapp.dto.BudgetResponse;
+import com.eddie.budgeting.eddiesbudgetingapp.dto.BudgetUpdateRequest;
+import com.eddie.budgeting.eddiesbudgetingapp.mapper.BudgetMapper;
 import com.eddie.budgeting.eddiesbudgetingapp.model.Budget;
-import com.eddie.budgeting.eddiesbudgetingapp.model.Expense;
 import com.eddie.budgeting.eddiesbudgetingapp.repository.BudgetRepository;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class BudgetService {
 
-    private final BudgetRepository repo;
+    private final BudgetRepository budgetRepo;
 
-    public BudgetService(BudgetRepository repo) {
-        this.repo = repo;
+    public BudgetService(BudgetRepository budgetRepository) {
+        this.budgetRepo = budgetRepository;
     }
 
     public List<Budget> findAll() {
-        return repo.findAll();
+        return budgetRepo.findAll();
     }
 
-    public Budget findById(Long id) {
-        return repo.findById(id).orElse(null);
+    public Budget findById(Long budgetId) {
+        return budgetRepo.findById(budgetId).orElse(null);
     }
 
     public Budget createBudget(Budget newBudget) {
         newBudget.setBudgetId(null);
-        repo.save(newBudget);
+        budgetRepo.save(newBudget);
         return newBudget;
     }
 
     public Budget save(Budget Budget) {
-        return repo.save(Budget);
+        return budgetRepo.save(Budget);
     }
 
-    public void delete(Long id) {
-        repo.deleteById(id);
-
+    public void delete(Long budgetId) {
+        budgetRepo.deleteById(budgetId);
     }
 
-    public Budget update(Long id, String updateChoice) {
-        Budget budgetToUpdate = repo.findById(id).orElse(null);
-        // Do logic to update it based on what they're trying to update.
+    public BudgetResponse updateBudget(Long budgetId, BudgetUpdateRequest updateRequest) {
+        // Find the budget to be updated.
+        Budget budgetToUpdate = budgetRepo.findById(budgetId)
+                .orElseThrow(() -> new RuntimeException("Budget not found!"));
 
-        return null;
+        // Update the budget using the requested udpated we received.
+        BudgetMapper.updateBudgetFromRequest(updateRequest, budgetToUpdate);
+
+        // After updating the budget with the requested changes, we now map it to the DTO.
+        BudgetResponse budgetResponse = BudgetMapper.mapResponse(budgetToUpdate);
+
+        // Save the updates to the DB.
+        budgetRepo.save(budgetToUpdate);
+
+        return budgetResponse;
     }
 
 
