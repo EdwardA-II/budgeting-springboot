@@ -48,7 +48,7 @@ public class BudgetService {
         // Update the budget using the requested udpated we received.
         BudgetMapper.updateBudgetFromRequest(updateRequest, budgetToUpdate);
 
-        // After updating the budget with the requested changes, we now map it to the DTO.
+        // After updating the budget with the requested changes, we now map it to the Response DTO.
         BudgetResponse budgetResponse = BudgetMapper.mapResponse(budgetToUpdate);
 
         // Save the updates to the DB.
