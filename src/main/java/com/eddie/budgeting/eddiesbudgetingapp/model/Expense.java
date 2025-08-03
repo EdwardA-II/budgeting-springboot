@@ -1,5 +1,6 @@
 package com.eddie.budgeting.eddiesbudgetingapp.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,11 +24,13 @@ public class Expense {
 
     @ManyToOne
     @JoinColumn(name = "budgetId")
+    @JsonBackReference
     private Budget budget;
 
     String expenseName;
     BigDecimal expenseCost;
-    BigDecimal totalExpenses = BigDecimal.valueOf(0.0);
+    // This is covered in the Budget as planned and actual totals!
+//    BigDecimal totalExpenses = BigDecimal.valueOf(0.0);
 
     @Override
     public boolean equals(Object e) {
@@ -48,12 +51,12 @@ public class Expense {
         Expense expense = (Expense) e;
 
         return Objects.equals(this.expenseName, expense.expenseName) &&
-                Objects.equals(this.expenseId, expense.expenseId);
+                Objects.equals(this.expenseCost, expense.expenseCost);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(expenseName, expenseId);
+        return Objects.hash(expenseName, expenseCost);
     }
 
 }

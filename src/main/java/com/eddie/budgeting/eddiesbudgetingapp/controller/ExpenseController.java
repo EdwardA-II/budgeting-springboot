@@ -1,8 +1,12 @@
 package com.eddie.budgeting.eddiesbudgetingapp.controller;
 
+import com.eddie.budgeting.eddiesbudgetingapp.dto.ExpenseResponse;
 import com.eddie.budgeting.eddiesbudgetingapp.model.Budget;
 import com.eddie.budgeting.eddiesbudgetingapp.model.Expense;
 import com.eddie.budgeting.eddiesbudgetingapp.service.ExpenseService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -33,8 +37,11 @@ public class ExpenseController {
     }
 
     @PostMapping(produces = "application/json", consumes = "application/json")
-    public Expense addExpense(@RequestBody Expense newExpense, @PathVariable Long budgetId) {
-        return expenseService.createExpense(newExpense, budgetId);
+    public ResponseEntity<ExpenseResponse> addExpense(
+            @RequestBody Expense newExpense,
+            @PathVariable Long budgetId) throws JsonProcessingException {
+        ExpenseResponse response = expenseService.createExpense(newExpense, budgetId);
+        return ResponseEntity.ok(response);
     }
 
     @RequestMapping(path = "/{expenseId}", produces = "application/json")

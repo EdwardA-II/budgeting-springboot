@@ -45,7 +45,7 @@ public class BudgetService {
         Budget budgetToUpdate = budgetRepo.findById(budgetId)
                 .orElseThrow(() -> new RuntimeException("Budget not found!"));
 
-        // Update the budget using the requested udpated we received.
+        // Update the budget using the requested updated we received.
         BudgetMapper.updateBudgetFromRequest(updateRequest, budgetToUpdate);
 
         // After updating the budget with the requested changes, we now map it to the Response DTO.
